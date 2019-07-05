@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title style="font-family:Segoa Print">
+     {{name}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row *ngFor="let location of locations" >
+      <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="3">
+        <ion-card  style="width:300px; hight:800px">
+          <ion-card-header>
+            <ion-card-title>
+              {{location.name}}
+            </ion-card-title>
+            <ion-card-subtitle>
+               {{location.distance}} km away
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item >
+              <ion-slides pager="true" [options]="slideOpts">
+                  <ion-slide>
+                    <ion-thumbnail style="width:200px; hight:300px" >
+                      <ion-img [src]="location.images[0].imgPath"></ion-img>
+                    </ion-thumbnail>
+                    <p>{{location.address}}</p>  
+                  </ion-slide>
+                  <ion-slide>
+                    <ion-thumbnail style="width:200px; hight:200px">
+                      <ion-img  [src]="location.images[1].imgPath"></ion-img>
+                    </ion-thumbnail>
+                  </ion-slide>
+                  <ion-slide>
+                    <ion-thumbnail style="width:200px; hight:200px">
+                      <ion-img  [src]="location.images[2].imgPath"></ion-img>
+                    </ion-thumbnail>
+                  </ion-slide>
+              </ion-slides>
+              </ion-item>    
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-button color="secondary" expand="full" (click)="goToTournaments()">Go to tournaments</ion-button>
+
+
